@@ -1,10 +1,10 @@
 # Deployment Guide
 
-This application is a **Single Page Application (SPA)** built with React and Vite. It is designed to be hosted on any static file server.
+This application is a **Single Page Application (SPA)** built with React and Vite. It has been configured to generate a **single HTML file** with all assets (CSS, JavaScript) inlined.
 
 ## How to Build for Production
 
-To generate the static HTML, CSS, and JavaScript files, run:
+To generate the single static HTML file, run:
 
 ```bash
 npm run build
@@ -14,23 +14,16 @@ npm run build
 
 The build process will create a `dist` directory containing:
 
-- `index.html`: The main entry point.
-- `assets/`: Directory containing compiled CSS and JavaScript files.
+- `index.html`: The complete application in a single file.
 
-## Hosting
+## Usage
 
-You can upload the contents of the `dist` directory to any static hosting provider, such as:
+You can use this file in several ways:
 
-- **GitHub Pages**
-- **Netlify**
-- **Vercel**
-- **Cloudflare Pages**
-- **Amazon S3**
-- **Apache / Nginx** (static mode)
+1.  **Open Directly**: Double-click the `index.html` file to open it in your browser. No server required.
+2.  **Email/Share**: Send the file as an attachment.
+3.  **Host Anywhere**: Upload to any static hosting provider or file share.
 
 ### Configuration Note
 
-The project is configured with `base: './'` in `vite.config.ts`. This means it uses **relative paths** for assets. 
-- You can deploy it to the root of a domain (e.g., `example.com`).
-- You can deploy it to a subdirectory (e.g., `example.com/calculator`).
-- You can even open the `index.html` file directly in a browser (though some features might require a local server due to CORS policies).
+The project uses `vite-plugin-singlefile` in `vite.config.ts` to inline all assets. This makes the application completely portable.
